@@ -9,7 +9,7 @@ namespace Examen.Data
 {
     public class Contexto : DbContext
     {
-      public DbSet<Contexto> inscribir { get; set; }
+      public DbSet<Contexto> Contextos { get; set; }
        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
