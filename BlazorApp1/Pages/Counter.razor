@@ -1,0 +1,32 @@
+﻿
+@page "/counter"
+
+@using BlazorApp1.Data
+
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+<input id="Text1"@bind-value="personas.Nombres" type="text" />"
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+    private Personas personas = new Personas();
+
+    private void IncrementCount()
+    {
+        currentCount++;
+        Contexto contexto = new Contexto();
+        //Personas personas = new Personas();
+
+        personas.PesonaId = 123;
+        personas.Nombres = "Jose";
+        personas.Edad = 14;
+
+        contexto.Personas.Add(personas);
+        contexto.SaveChanges();
+
+
+    }
+}
