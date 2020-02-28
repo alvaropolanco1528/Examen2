@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Parcial1.Data;
+using Tarea4.Data;
 
-namespace Parcial1
+namespace Tarea4
 {
     public class Startup
     {
@@ -28,6 +28,7 @@ namespace Parcial1
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddSingleton<WeatherForecastService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

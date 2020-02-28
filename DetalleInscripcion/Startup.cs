@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Parcial1.Data;
+///using DetalleInscripcion.Data;
 
-namespace Parcial1
+namespace DetalleInscripcion
 {
     public class Startup
     {
@@ -28,6 +28,7 @@ namespace Parcial1
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
