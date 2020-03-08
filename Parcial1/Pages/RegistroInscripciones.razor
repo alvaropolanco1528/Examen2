@@ -1,0 +1,57 @@
+﻿@page "/Registro"
+
+<h3>RegistroInscripciones</h3>
+
+<EditForm Model="inscripciones" OnValidSubmit="Guardar">
+	<DataAnnotationsValidator />
+
+	<div class="form-group">
+		<label for="matricula">	Matricula</label>
+		<InputNumber @bind-Value="@inscripciones.Matricula" class="form-control" />
+		<ValidationMessage For="@(()=>inscripciones.Matricula)" />
+
+	</div>
+	<div class="form-group">
+		<label for="Fecha">Fecha</label>
+		<InputDate @bind-Value="@inscripciones.Fecha" class="form-control" />
+		<ValidationMessage For="@(()=>inscripciones.Fecha)" />
+	</div>
+	<div class="form-group">
+		<label for="Creditos">Semestre</label>
+		<InputText @bind-Value="@Semestre"class="form-control"/>
+		<InputText @bind-Value="@(()=>inscripciones.Semestre)"/>
+	</div>
+
+	<h5>@mensaje</h5>
+
+
+</EditForm>
+
+
+@code {
+    public Inscripciones inscripciones= new Inscripciones();
+	public string mensaje = "";
+
+	public void Guardar()
+	{
+		
+		InscripcionController controller = new InscripcionController();
+
+		if (controller.Guardar(inscripciones))
+		{
+			this.inscripciones = new Inscripciones();
+			mensaje = "Producto Guardado";
+		}
+		else
+		{
+			this.inscripciones = new Inscripciones();
+			mensaje = "Error al guardar";
+		}
+	}
+
+	
+	}
+
+	
+
+}
